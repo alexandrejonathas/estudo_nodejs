@@ -5,7 +5,7 @@ angular
               .when('/',
                     {templateUrl: 'listar.html'}
               )
-              .when('/add',
+              .when('/pessoa/add',
               {
                 templateUrl: 'adicionar.html',
                 controller: 'CtrlAdicionar'
@@ -22,9 +22,8 @@ angular
         ];
       }).controller('CtrlAdicionar', function($scope){
         $scope.add = function(){
-          $scope.pessoas.push({
-            nome: $scope.pessoa.nome,
-            cidade: $scope.pessoa.cidade
-          });
+          $scope.pessoas.push($scope.pessoa);
+          $scope.pessoa = "";
+          $scope.result = "Registro inserido com sucesso!"
         };
       });
